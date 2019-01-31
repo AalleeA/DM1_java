@@ -1,0 +1,6 @@
+DM1 : Approche objet, uttilisation et conception de classes simple.
+
+Exercice 1 : Chronomètre :
+
+  1) voici les signatures de toute les fonction :
+  
