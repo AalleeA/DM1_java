@@ -3,4 +3,27 @@ DM1 : Approche objet, uttilisation et conception de classes simple.
 Exercice 1 : Chronomètre :
 
   1) voici les signatures de toute les fonction :
-  
+        public int getheure()
+        public int getminute()
+        public int getsecondes()
+        public void setheure(int)
+        public void setminute(int)
+        public void setsecondes(int)
+
+
+
+  2) Voici le constructeur de la classe Chrono1
+
+        public Chrono1(){
+            heure = 0;
+            minute = 0;
+            seconde = 0;
+        }
+
+    Voici le constructeru de la class Chrono2
+
+        public Chrono2(){
+            nbsecondes = 0;
+        }
+
+    2)
