@@ -2,7 +2,7 @@ DM1 : Approche objet, uttilisation et conception de classes simple.
 
 Exercice 1 : Chronomètre :
 
-  1) voici les signatures de toute les fonction :
+  1) Voici les signatures de toute les fonction :
         public int getheure()
         public int getminute()
         public int getsecondes()
@@ -26,4 +26,97 @@ Exercice 1 : Chronomètre :
             nbsecondes = 0;
         }
 
-    2)
+  3) Le probleme avec cette methode est le moment ou le chronometre est a 0,
+     il ne faut pas qu'il passe a -1, et il faut pouvoir savoir que le compteur est fini.
+     Pour resoudre ce probleme, on fait en sorte que la methode renvois 0 si le compteur a effectuer le -1
+     et -1 si le compteur a fini.
+
+     Voici la methode :
+          public int rebours(){
+            int sec = getseconde();
+            int min = getminute();
+            int h = getheure();
+
+            if(sec+min+h > 0){
+                setseconde(sec - 1);
+                if(getseconde()<0){
+                  setminute(min -1);
+                  setseconde(59);
+                }
+                if(getminute()<0){
+                  setheure(h -1);
+                  setminute(59);
+                }
+                return 0;
+            }
+            else{return -1;}
+          }
+
+
+
+    4) La premiere implementation est plus simple au niveau de l'implementation des getteur et des setteur
+        mais la fonction rebours est beaucoup plus compliquer. Avec la deuxieme implementation, la fonction rebours est beaucoup plus simple
+        et comme c'est la fonction qui est repeter le plus de fois, c'ets donc la meilleur implementation.
+
+
+    5) Le programe complet est disponible dans l'archive, EX1/EX1.java
+
+
+  Exercice 2
+
+    1) Les types de base de java ne sont pas capable de comprendre les nombres irrationnel,
+       il n'ets donc pas possible d'obtenir les valeur exacte des operation arithmetique.
+
+    2) Voici le diagrame de la class Fraction
+
+              ---------------
+              |   Fraction  |
+              ---------------
+              | denominateur|
+              | numerateur  |
+              ---------------
+              | getden      |
+              | getnum      |
+              | setden      |
+              | add         |
+              | sub         |
+              | mult        |
+              | reduc       |
+              | addFraction |
+              | MultFraction|
+              ---------------
+
+        Les signatures sont les suivante :
+
+                public int getden()
+                public int getnum()
+                public void setden(int d)
+                public void setnum(int n)
+                private void reduc()
+                public void add(int x)
+                public void sub(int x)
+                public void mult(int x)
+                public void addFraction(Fraction f2)
+                public void multFraction(Fraction f2)
+
+
+      3) Voici le code du constructeur de la class Fraction :
+
+                public Fraction(int d,int n){
+                  denominateur = d;
+                  numerateur = n;
+                  reduc();
+                }
+
+      4) Le programe complet est disponible dans l'archive, EX2/EX2.java
+
+
+
+      BONUS : voici le code de la fonction pgcd()
+
+                private int pgcd(int x,int y){
+                if(x == 0){return y;}
+                else if(y == 0){return y;}
+                else if(y<=x){return pgcd(x-y,y);}
+                else{return(pgcd(x,y-x));}
+                }
