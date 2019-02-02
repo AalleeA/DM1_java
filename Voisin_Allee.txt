@@ -20,18 +20,18 @@ Exercice 1 : Chronomètre :
             seconde = 0;
         }
 
-    Voici le constructeru de la class Chrono2
+    Voici le constructeur de la class Chrono2
 
         public Chrono2(){
             nbsecondes = 0;
         }
 
-  3) Le probleme avec cette methode est le moment ou le chronometre est a 0,
-     il ne faut pas qu'il passe a -1, et il faut pouvoir savoir que le compteur est fini.
-     Pour resoudre ce probleme, on fait en sorte que la methode renvois 0 si le compteur a effectuer le -1
+  3) Le probleme avec cette methode est le moment ou le chronometre est à 0,
+     il ne faut pas qu'il passe à -1, et il faut pouvoir savoir que le compteur est fini.
+     Pour resoudre ce probleme, on fait en sorte que la méthode renvoie 0 si le compteur à effectué le -1
      et -1 si le compteur a fini.
 
-     Voici la methode :
+     Voici la méthode :
           public int rebours(){
             int sec = getseconde();
             int min = getminute();
@@ -54,18 +54,19 @@ Exercice 1 : Chronomètre :
 
 
 
-    4) La premiere implementation est plus simple au niveau de l'implementation des getteur et des setteur
-        mais la fonction rebours est beaucoup plus compliquer. Avec la deuxieme implementation, la fonction rebours est beaucoup plus simple
-        et comme c'est la fonction qui est repeter le plus de fois, c'ets donc la meilleur implementation.
+    4) La premiere implémentation est plus simple au niveau de l'implémentation des getteur et des setteur
+       mais la fonction rebours est beaucoup plus compliquée. Avec la deuxieme implémentation, la fonction rebours est beaucoup plus
+	   simple et comme c'est la fonction qui est repetée le plus de fois, c'est donc la meilleur implementation.
+	   De plus la seconde implementation est moins gourmande en mémoire en effet le chronomètre ne prends qu'un int, (il en prend 3 dans la première).
 
 
-    5) Le programe complet est disponible dans l'archive, EX1/EX1.java
+    5) Le programme complet est disponible dans l'archive, EX1/EX1.java
 
 
   Exercice 2
 
-    1) Les types de base de java ne sont pas capable de comprendre les nombres irrationnel,
-       il n'ets donc pas possible d'obtenir les valeur exacte des operation arithmetique.
+    1) Les types de base de java ne sont pas capables de comprendre les nombres irrationnel,
+       il n'est donc pas possible d'obtenir les valeurs exactes des operations arithmetiques.
 
     2) Voici le diagrame de la class Fraction
 
@@ -86,7 +87,7 @@ Exercice 1 : Chronomètre :
               | MultFraction|
               ---------------
 
-        Les signatures sont les suivante :
+        Les signatures sont les suivantes :
 
                 public int getden()
                 public int getnum()
