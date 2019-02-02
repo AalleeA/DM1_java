@@ -65,8 +65,13 @@ Exercice 1 : Chronomètre :
 
   Exercice 2
 
-    1) Les types de base de java ne sont pas capables de comprendre les nombres irrationnel,
-       il n'est donc pas possible d'obtenir les valeurs exactes des operations arithmetiques.
+    1) Les types de base de java ne sont pas capables de comprendre les nombres irrationnels,
+       il n'est donc pas possible d'obtenir les valeurs exactes des operations arithmetiques sur ces nombres.
+       Toutefois en effectuant des calculs sur des entiers, ou des nombre à virgules en prenant garde que les types peuvent contenir les nombres 
+	   (y compris après des opérations) on peut obtenir des valeurs exactes. 
+	   En effet la multiplication de 2.5 par 3.5 ne pose pas de problèmes car le résultat tiendra sur une variable de type float.
+	   Mais les opérations de grandes variables à virgules peuvent s'avérer problématiques si ces dernières dépassent la capacité des types.
+	   Les problèmes peuvent aller d'un simple tronquage à une inversion de signe dans le cas d'un dépassent sur un nombre entier.
 
     2) Voici le diagrame de la class Fraction
 
