@@ -33,24 +33,22 @@ Exercice 1 : Chronomètre :
 
      Voici la méthode :
           public int rebours(){
-            int sec = getseconde();
-            int min = getminute();
-            int h = getheure();
+   		     byte retour = -1;
+   		     if(heures+minutes+secondes >0){
 
-            if(sec+min+h > 0){
-                setseconde(sec - 1);
-                if(getseconde()<0){
-                  setminute(min -1);
-                  setseconde(59);
-                }
-                if(getminute()<0){
-                  setheure(h -1);
-                  setminute(59);
-                }
-                return 0;
-            }
-            else{return -1;}
-          }
+   			     secondes -=1;
+   			     if(0 > secondes){
+   				      secondes =59;
+   				      minutes -=1;
+   			     }
+   			     if(0 > minutes){
+   				      minutes =59;
+   				      heures -=1;
+   			     }
+   			     retour =0;
+   		    }
+   		    return retour;
+   	     }
 
 
 
@@ -103,9 +101,9 @@ Exercice 1 : Chronomètre :
 
       3) Voici le code du constructeur de la class Fraction :
 
-                public Fraction(int d,int n){
-                  denominateur = d;
+                public Fraction(int n,int d){
                   numerateur = n;
+                  denominateur = d;
                   reduc();
                 }
 

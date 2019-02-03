@@ -1,171 +1,130 @@
 public class EX1{
   public static void main(String[] args){
-    Chrono1 C1 = new Chrono1();
+	Chrono1 C1 = new Chrono1();
     C1.afficher();
-    C1.setheure(1);
-    C1.setminute(30);
+    C1.setHeures(1);
+    C1.setMinutes(30);
     C1.afficher();
     while(  C1.rebours()== 0){
       C1.afficher();
     }
-    System.out.println("FIN du TD");
-
-
-
-
-
-    Chrono2 C2 = new Chrono2();
+    System.out.println("FIN du TD"); 
+  
+  
+	Chrono2 C2 = new Chrono2();
     C2.afficher();
-    C2.setheure(1);
-    C2.setminute(30);
+    C2.setHeures(1);
+    C2.setMinutes(30);
     C2.afficher();
     while(  C2.rebours()== 0){
       C2.afficher();
     }
     System.out.println("FIN du TD");
-  }
+    }
 }
-
-
-
-
-
-
-
 
 
 class Chrono1{
+	
+	private int heures;
+	private int minutes;
+	private int secondes;
+	
 
-  private int heure;
-  private int minute;
-  private int seconde;
+	// constructeur
+	public Chrono1(){
+		heures =0;
+		minutes =0;
+		secondes =0;		
+	}
+	
+	public int getHeures(){
+		return heures;		
+	}
 
-//constructeur
-  public Chrono1(){
-    heure = 0;
-    minute = 0;
-    seconde = 0;
-  }
-
-
-//get heure
-  public int getheure(){
-    return heure;
-  }
-
-//get minute
-  public int getminute(){
-    return minute;
-  }
-
-  //get seconde
-  public int getseconde(){
-    return seconde;
-  }
-
-  //set
-  public void setheure(int h){
-    heure = h;
-  }
-
-  public void setminute(int m){
-    minute = m;
-  }
-
-  public void setseconde(int s){
-    seconde = s;
-  }
-
-  public void afficher(){
-    System.out.print(getheure());
-    System.out.print(":");
-    System.out.print(getminute());
-    System.out.print(":");
-    System.out.println(getseconde());
-
-  }
-
-  public int rebours(){
-    int sec = getseconde();
-    int min = getminute();
-    int h = getheure();
-
-    if(sec+min+h > 0){
-      setseconde(sec - 1);
-      if(getseconde()<0){
-        setminute(min -1);
-        setseconde(59);
-      }
-      if(getminute()<0){
-        setheure(h -1);
-        setminute(59);
-      }
-      return 0;
-    }
-    else{return -1;}
-  }
+	public int getMinutes(){
+		return minutes;
+	}
+	
+	public int getSecondes(){
+		return secondes;
+	}
+	
+	public void setHeures(int h){
+		heures = h;
+	}
+	public void setMinutes(int m){
+		minutes = m;
+	}
+	public void setSecondes(int s){
+		secondes =s;
+	}
+	
+	public void afficher(){
+		System.out.println(heures+":"+minutes+":"+secondes);
+		
+	}
+	
+	public int rebours(){
+		byte retour = -1;
+		if(heures+minutes+secondes >0){
+			
+			secondes -=1;
+			if(0 > secondes){
+				secondes =59;
+				minutes -=1;
+			}
+			if(0 > minutes){
+				minutes =59;
+				heures -=1;
+			}
+			retour =0;
+		}
+		return retour;
+	}
 }
 
 
-
-
-
 class Chrono2{
-  private int nbseconde;
-
-  public Chrono2(){
-    nbseconde = 0;
-  }
-
-  public int getheure(){
-    return (nbseconde / 3600);
-  }
-
-//get minute
-  public int getminute(){
-    int h = getheure();
-    return ( (nbseconde - h*3600)/60 );
-  }
-
-  //get seconde
-  public int getseconde(){
-    int h = getheure();
-    int min = getminute();
-    return (nbseconde - h*3600 - min*60);
-  }
-
-  public void setheure(int h){
-    nbseconde = nbseconde - 3600*getheure() + h*3600;
-  }
-
-  public void setminute(int m){
-    nbseconde = nbseconde - 60*getminute() + m*60;
-  }
-
-  public void setseconde(int s){
-    nbseconde = nbseconde - getseconde() + s;
-  }
-  public void afficher(){
-    System.out.print(getheure());
-    System.out.print(":");
-    System.out.print(getminute());
-    System.out.print(":");
-    System.out.println(getseconde());
-
-  }
-
-  public int rebours(){
-    if(nbseconde > 0){
-      nbseconde -= 1;
-      return 0;
-    }
-    else{return -1;}
-  }
-
-
-
-
-
-
-
+	
+	private int nbSecondes;
+	
+	// Constructeur
+	public Chrono2(){
+		nbSecondes =0;		
+	}
+	
+	public int getHeures(){
+		return nbSecondes/3600;
+	}
+	public int getMinutes(){
+		return (nbSecondes%3600)/60;
+	}
+	public int getSecondes(){
+		return nbSecondes%60;
+	}
+	
+	public void setHeures(int h){
+		nbSecondes += 3600*h - getHeures();
+	}
+	public void setMinutes(int m){
+		nbSecondes += 60*m - getMinutes();
+	}
+	public void setSecondes(int s){
+		nbSecondes += s -getSecondes();
+	}
+	
+	public void afficher(){
+		System.out.println(getHeures()+":"+getMinutes()+":"+getSecondes());
+	}
+	
+	public int rebours(){
+		byte retour =-1;
+		if(nbSecondes > 0){
+			nbSecondes --;
+			retour =0;
+		}
+		return retour;		
+	}
+	
 }
